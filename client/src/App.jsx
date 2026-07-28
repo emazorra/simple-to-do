@@ -26,15 +26,17 @@ function App() {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({task: newTask})
+      body: JSON.stringify({ task: newTask })
     })
-    .then((data) => data.json())
-    .then((taskData) => setTasks([...tasks, taskData]))
-    .then(()=> setNewTask(""))
-    
+      .then((data) => data.json())
+      .then((taskData) => setTasks([...tasks, taskData]))
+      .then(() => setNewTask(""))
+
   })
 
   const handleToggleComplete = (taskId) => {
+
+   tasks.find 
 
     fetch(`/tasks/${taskId}`, {
       method: 'PATCH',
@@ -60,7 +62,7 @@ function App() {
       <div>
         <form onSubmit={handleSubmit}>
           <label>Input New Task: </label>
-          <input type="text" name="new task" value={newTask} onChange={(e)=>setNewTask(e.target.value)}></input>
+          <input type="text" name="new task" value={newTask} onChange={(e) => setNewTask(e.target.value)}></input>
           <button type="submit">Submit</button>
         </form>
       </div>
